@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ColorPicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<SplitPane dividerPositions="0.5" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="525.0" style="-fx-background-color: #F4F4F4;" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="info.lusito.mapeditor.editors.tileset.TilesetEditorController">
+    <items>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+            <children>
+                <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <children>
+                        <Label text="Tileset Editor">
+                            <font>
+                                <Font name="System Bold" size="14.0" />
+                            </font>
+                     <VBox.margin>
+                        <Insets bottom="5.0" />
+                     </VBox.margin>
+                        </Label>
+                        <GridPane hgap="5.0" minHeight="-Infinity" vgap="5.0">
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="NEVER" minWidth="-Infinity" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="50.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="50.0" prefWidth="100.0" />
+                        <ColumnConstraints halignment="CENTER" hgrow="NEVER" minWidth="-Infinity" />
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints vgrow="SOMETIMES" />
+                        <RowConstraints vgrow="SOMETIMES" />
+                        <RowConstraints vgrow="SOMETIMES" />
+                                <RowConstraints vgrow="SOMETIMES" />
+                        <RowConstraints vgrow="SOMETIMES" />
+                        <RowConstraints vgrow="SOMETIMES" />
+                            </rowConstraints>
+                            <children>
+                                <Label text="Name:" />
+                                <TextField fx:id="name" maxWidth="1.7976931348623157E308" promptText="for example &quot;Grass&quot;.." GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.hgrow="ALWAYS" />
+                        <Label text="Image:" GridPane.rowIndex="1" />
+                        <TextField fx:id="image" promptText="The image file to use" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="1" />
+                        <Button mnemonicParsing="false" onAction="#onChooseImage" text="..." GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                                <Label text="Grid Size:" GridPane.rowIndex="3" />
+                        <TextField fx:id="gridX" promptText="Width.." text="32" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <TextField fx:id="gridY" promptText="Height.." text="32" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                        <Label text="Image Size:" GridPane.rowIndex="2" />
+                        <Label text="Margin:" GridPane.rowIndex="4" />
+                        <Label text="Padding:" GridPane.rowIndex="5" />
+                        <TextField fx:id="marginX" promptText="Top/Bottom.." text="0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                        <TextField fx:id="paddingX" promptText="X.." text="0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                        <TextField fx:id="marginY" promptText="Left/Right.." text="0" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                        <TextField fx:id="paddingY" promptText="Y.." text="0" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+                        <TextField fx:id="width" disable="true" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <TextField fx:id="height" disable="true" editable="false" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                        <Label text="px" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                        <Label text="px" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                        <Label text="px" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+                        <Label text="px" GridPane.columnIndex="3" GridPane.rowIndex="5" />
+                            </children>
+                     <VBox.margin>
+                        <Insets bottom="5.0" />
+                     </VBox.margin>
+                        </GridPane>
+                  <Label fx:id="gridNoMatch" text="Error: Grid does not match image size." textFill="#a80000">
+                     <VBox.margin>
+                        <Insets bottom="5.0" />
+                     </VBox.margin></Label>
+                  <TabPane fx:id="tabPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" tabClosingPolicy="UNAVAILABLE" VBox.vgrow="ALWAYS">
+                    <tabs>
+                      <Tab text="Properties">
+                           <content>
+                              <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="100.0">
+                                 <children>
+                                    <GridPane>
+                                      <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" />
+                                      </columnConstraints>
+                                      <rowConstraints>
+                                        <RowConstraints vgrow="SOMETIMES" />
+                                      </rowConstraints>
+                                       <children>
+                                          <Label fx:id="propertyEditorTitle" maxWidth="1.7976931348623157E308" text="Tileset Properties">
+                                             <font>
+                                                <Font name="System Bold" size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Button fx:id="globalProperties" mnemonicParsing="false" onAction="#onShowGlobalProperties" text="Tileset Properties" GridPane.columnIndex="1" />
+                                       </children>
+                                       <opaqueInsets>
+                                          <Insets />
+                                       </opaqueInsets>
+                                       <VBox.margin>
+                                          <Insets bottom="5.0" top="5.0" />
+                                       </VBox.margin>
+                                    </GridPane>
+                                    <TableView fx:id="propertyTable" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+                                       <columns>
+                                          <TableColumn fx:id="propertyKeyColumn" editable="false" prefWidth="75.0" resizable="false" sortable="false" text="Key" />
+                                          <TableColumn fx:id="propertyValueColumn" editable="false" prefWidth="123.0" resizable="false" sortable="false" text="Value" />
+                                          <TableColumn fx:id="propertyDeleteColumn" editable="false" maxWidth="-Infinity" minWidth="50.0" prefWidth="50.0" sortable="false" text="Delete" />
+                                       </columns>
+                                    </TableView>
+                                    <GridPane hgap="5.0" minHeight="-Infinity">
+                                       <children>
+                                          <Button fx:id="addNewProperty" mnemonicParsing="false" text="Add" GridPane.columnIndex="2" />
+                                          <TextField fx:id="newPropertyKey" maxWidth="1.7976931348623157E308" promptText="Key.." GridPane.hgrow="ALWAYS" />
+                                          <TextField fx:id="newPropertyValue" maxWidth="1.7976931348623157E308" promptText="Value.." GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" />
+                                       </children>
+                                       <columnConstraints>
+                                          <ColumnConstraints hgrow="ALWAYS" maxWidth="1.7976931348623157E308" minWidth="10.0" />
+                                          <ColumnConstraints hgrow="ALWAYS" maxWidth="1.7976931348623157E308" minWidth="10.0" />
+                                          <ColumnConstraints hgrow="NEVER" minWidth="-Infinity" />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints vgrow="SOMETIMES" />
+                                       </rowConstraints>
+                                       <VBox.margin>
+                                          <Insets top="5.0" />
+                                       </VBox.margin>
+                                    </GridPane>
+                                 </children>
+                              </VBox>
+                           </content>
+                      </Tab>
+                      <Tab text="Terrain">
+                           <content>
+                              <VBox prefHeight="200.0" prefWidth="100.0">
+                                 <children>
+                                    <Label text="Select a terrain, use left click to draw, right to erase">
+                                       <VBox.margin>
+                                          <Insets bottom="5.0" top="5.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <TableView fx:id="terrainTable" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+                                      <columns>
+                                        <TableColumn fx:id="terrainNameColumn" prefWidth="75.0" resizable="false" text="Name" />
+                                        <TableColumn fx:id="terrainDeleteColumn" maxWidth="-Infinity" minWidth="50.0" prefWidth="50.0" text="Delete" />
+                                      </columns>
+                                    </TableView>
+                                    <HBox spacing="5.0">
+                                       <children>
+                                          <TextField fx:id="newTerrainName" promptText="Name..." HBox.hgrow="ALWAYS" />
+                                          <Button fx:id="addTerrain" mnemonicParsing="false" text="Add" />
+                                       </children>
+                                       <padding>
+                                          <Insets top="5.0" />
+                                       </padding>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                           </content>
+                      </Tab>
+                    </tabs>
+                  </TabPane>
+                    </children>
+                </VBox>
+            </children>
+            <padding>
+                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+            </padding>
+        </AnchorPane>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+            <children>
+                <VBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <children>
+                        <Label text="Preview">
+                            <font>
+                                <Font name="System Bold" size="14.0" />
+                            </font>
+                            <VBox.margin>
+                                <Insets bottom="5.0" />
+                            </VBox.margin>
+                        </Label>
+                  <GridPane hgap="5.0">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" valignment="TOP" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <ColorPicker fx:id="gridColor" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Canvas fx:id="zoomCanvas" height="128.0" width="128.0" GridPane.rowIndex="1" />
+                        <Label text="Magnifier:" />
+                        <Label text="Debug Color:" GridPane.columnIndex="1" />
+                     </children>
+                  </GridPane>
+                  <ScrollPane fx:id="previewPanel" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin></ScrollPane>
+                    </children>
+                </VBox>
+            </children>
+            <padding>
+                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+            </padding>
+        </AnchorPane>
+    </items>
+</SplitPane>

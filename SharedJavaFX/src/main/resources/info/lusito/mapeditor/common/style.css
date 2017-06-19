@@ -1,0 +1,99 @@
+.eco-properties-editor .column-header-background {
+    visibility: hidden;
+    -fx-padding: -1em;
+}
+.eco-properties-editor .tree-table-row-cell {
+    -fx-indent: -16;
+    -fx-border-width: 0 1 1 0;
+    -fx-border-style: solid;
+    -fx-border-color: lightgrey;
+}
+
+.eco-properties-editor .tree-table-cell {
+    -fx-alignment: center-left;
+    -fx-font-size: 0.916667em;
+    -fx-padding: 0;
+    -fx-background-insets: -1 0 0 -1;
+    -fx-border-insets: -1 0 0 -1;
+}
+.eco-properties-editor .tree-table-cell *:disabled {
+    -fx-opacity: 0.7;
+}
+.eco-properties-editor .tree-table-cell.extra {
+    -fx-alignment: center;
+}
+.eco-properties-editor .tree-table-cell.extra .button {
+    -fx-border-radius: 9;
+    -fx-background-radius: 9;
+    -fx-height: 18;
+    -fx-width: 18;
+    -fx-max-height: 18;
+    -fx-max-width: 18;
+    -fx-min-height: 18;
+    -fx-min-width: 18;
+    -fx-padding: 0;
+    -fx-font-family: monospace;
+}
+.eco-properties-editor .tree-table-cell .text-field {
+    -fx-text-box-border: transparent;
+    -fx-background-color: -fx-control-inner-background;
+    -fx-background-insets: 0;
+    -fx-padding: 4;
+}
+.eco-properties-editor .tree-table-cell .text-field,
+.eco-properties-editor .tree-table-cell .color-picker,
+.eco-properties-editor .tree-table-cell .combo-box,
+.eco-properties-editor .tree-table-cell .button {
+    -fx-border-width: 0;
+    -fx-border-radius: 0;
+    -fx-background-radius: 0;
+}
+.eco-properties-editor .tree-table-row-cell.section {
+    -fx-background-color: lightgrey;
+    -fx-padding: 1 0 0 0;
+    -fx-border-width: 0;
+    -fx-cell-size: 18;
+}
+.eco-properties-editor .tree-table-row-cell.section:selected {
+    -fx-background-color: -fx-selection-bar;
+}
+.eco-properties-editor .tree-table-row-cell.section .tree-table-cell {
+    -fx-padding: 0;
+    -fx-alignment: top-left;
+    -fx-border-width: 0;
+}
+.eco-properties-editor .tree-table-row-cell.section .tree-disclosure-node  {
+    -fx-padding: -5 6 -5 8;
+}
+
+.switch-button {
+    -fx-background-color: lightgray;
+    -fx-padding: 0;
+    -fx-alignment: top-left;
+}
+.switch-button.checked {
+    -fx-alignment: top-right;
+}
+.switch-button > * {
+    -fx-background-color: gray;
+    -fx-text-fill:white;
+    -fx-padding: 2;
+    -fx-background-insets: 0;
+    -fx-border-insets: 0;
+    -fx-label-padding: 0;
+    -fx-min-height: 23;
+}
+.switch-button.checked > * {
+    -fx-background-color: green;
+}
+.insert-above-row,
+.insert-below-row {
+    -fx-border-style: solid;
+    -fx-border-color: #0066cc;
+}
+.insert-above-row {
+    -fx-border-width: 2 0 0 0;
+}
+.insert-below-row {
+    -fx-border-width: 0 0 2 0;
+}

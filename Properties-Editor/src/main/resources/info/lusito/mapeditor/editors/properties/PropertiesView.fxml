@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TreeTableColumn?>
+<?import javafx.scene.control.TreeTableView?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox fx:id="container" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="info.lusito.mapeditor.editors.properties.PropertiesViewController">
+   <children>
+      <TreeTableView fx:id="table" editable="true" prefHeight="200.0" prefWidth="200.0" styleClass="eco-properties-editor" VBox.vgrow="ALWAYS">
+        <columns>
+          <TreeTableColumn fx:id="keyColumn" editable="false" prefWidth="275.0" resizable="false" sortable="false" />
+          <TreeTableColumn fx:id="valueColumn" editable="false" prefWidth="277.0" resizable="false" sortable="false" />
+            <TreeTableColumn fx:id="extraColumn" editable="false" maxWidth="25.0" minWidth="25.0" prefWidth="25.0" resizable="false" sortable="false" />
+        </columns>
+      </TreeTableView>
+      <Label text="Description">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+         <padding>
+            <Insets left="2.0" right="2.0" top="2.0" />
+         </padding>
+      </Label>
+      <Label fx:id="description" text="Select an item to see its description" wrapText="true">
+         <padding>
+            <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+         </padding>
+      </Label>
+   </children>
+</VBox>

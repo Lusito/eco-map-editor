@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<SplitPane dividerPositions="0.5" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #F4F4F4;" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="info.lusito.mapeditor.editors.component.ComponentEditorController">
+    <items>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+            <children>
+                <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <children>
+                        <Label text="Component Editor">
+                            <font>
+                                <Font name="System Bold" size="14.0" />
+                            </font>
+                     <VBox.margin>
+                        <Insets bottom="5.0" />
+                     </VBox.margin>
+                        </Label>
+                        <GridPane hgap="5.0" minHeight="-Infinity" vgap="5.0">
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="-Infinity" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints vgrow="SOMETIMES" />
+                                <RowConstraints vgrow="SOMETIMES" />
+                                <RowConstraints vgrow="SOMETIMES" />
+                            </rowConstraints>
+                            <children>
+                                <Label text="Name:" />
+                                <TextField fx:id="name" maxWidth="1.7976931348623157E308" promptText="for example &quot;Animation&quot;.." GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" />
+                                <Label text="Description:" GridPane.rowIndex="1" />
+                                <TextField fx:id="description" maxWidth="1.7976931348623157E308" promptText="A short description.." GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" />
+                                <Label text="Properties:" GridPane.rowIndex="2" />
+                            </children>
+                     <VBox.margin>
+                        <Insets bottom="5.0" />
+                     </VBox.margin>
+                        </GridPane>
+                        <TableView fx:id="table" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+                            <columns>
+                                <TableColumn fx:id="nameColumn" editable="false" maxWidth="1.7976931348623157E308" prefWidth="75.0" resizable="false" sortable="false" text="Name" />
+                                <TableColumn fx:id="typeColumn" editable="false" maxWidth="1.7976931348623157E308" prefWidth="75.0" resizable="false" sortable="false" text="Type" />
+                                <TableColumn fx:id="deleteColumn" editable="false" maxWidth="-Infinity" minWidth="50.0" prefWidth="50.0" resizable="false" sortable="false" text="Delete" />
+                            </columns>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                        </TableView>
+                        <GridPane hgap="5.0" minHeight="-Infinity">
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="-Infinity" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="-Infinity" />
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints vgrow="SOMETIMES" />
+                            </rowConstraints>
+                            <children>
+                                <Label text="New:" />
+                                <TextField fx:id="newPropertyName" onKeyPressed="#onNewPropertyNameKeyPressed" promptText="A name for the property.." GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" />
+                                <Button fx:id="addNewProperty" mnemonicParsing="false" onAction="#onNewPropertyAdd" text="Add" GridPane.columnIndex="2" />
+                            </children>
+                     <VBox.margin>
+                        <Insets top="5.0" />
+                     </VBox.margin>
+                        </GridPane>
+                    </children>
+                </VBox>
+            </children>
+            <padding>
+                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+            </padding>
+        </AnchorPane>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+            <children>
+                <VBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <children>
+                        <Label text="Property Editor">
+                            <font>
+                                <Font name="System Bold" size="14.0" />
+                            </font>
+                            <VBox.margin>
+                                <Insets bottom="5.0" />
+                            </VBox.margin>
+                        </Label>
+                        <GridPane hgap="5.0" layoutX="6.0" layoutY="55.0" maxWidth="1.7976931348623157E308" minHeight="-Infinity" vgap="5.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints vgrow="SOMETIMES" />
+                                <RowConstraints vgrow="SOMETIMES" />
+                                <RowConstraints vgrow="SOMETIMES" />
+                                <RowConstraints vgrow="SOMETIMES" />
+                                <RowConstraints vgrow="SOMETIMES" />
+                                <RowConstraints vgrow="SOMETIMES" />
+                                <RowConstraints vgrow="SOMETIMES" />
+                            </rowConstraints>
+                            <children>
+                                <Label text="Name:" />
+                                <TextField fx:id="propertyName" promptText="for example &quot;color&quot;.." GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" />
+                                <Label text="Description:" GridPane.rowIndex="1" />
+                                <TextField fx:id="propertyDescription" maxWidth="1.7976931348623157E308" promptText="A short description.." GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" />
+                                <Label text="Type:" GridPane.rowIndex="2" />
+                                <ComboBox fx:id="propertyType" maxWidth="1.7976931348623157E308" prefWidth="150.0" promptText="Property Type" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                <CheckBox fx:id="multipleValues" mnemonicParsing="false" text="Yes" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                <Label text="Multiple values:" GridPane.rowIndex="3" />
+                                <Label text="Minimum:" GridPane.rowIndex="4" />
+                                <TextField fx:id="minimum" maxWidth="1.7976931348623157E308" promptText="Minimum value.." GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                <Label text="Maximum:" GridPane.rowIndex="5" />
+                                <TextField fx:id="maximum" maxWidth="1.7976931348623157E308" promptText="Maximum value.." GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="5" />
+                                <Label text="Values: (one per line)" GridPane.columnSpan="2" GridPane.rowIndex="6" />
+                            </children>
+                     <VBox.margin>
+                        <Insets bottom="5.0" />
+                     </VBox.margin>
+                        </GridPane>
+                        <TextArea fx:id="values" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" promptText="One value per line.." VBox.vgrow="ALWAYS" />
+                    </children>
+                </VBox>
+            </children>
+            <padding>
+                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+            </padding>
+        </AnchorPane>
+    </items>
+</SplitPane>

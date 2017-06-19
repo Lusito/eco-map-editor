@@ -1,0 +1,88 @@
+package info.lusito.mapeditor.editors.component;
+
+import info.lusito.mapeditor.common.SavableDataObject;
+import java.io.IOException;
+import org.openide.awt.ActionID;
+import org.openide.awt.ActionReference;
+import org.openide.awt.ActionReferences;
+import org.openide.filesystems.FileObject;
+import org.openide.filesystems.MIMEResolver;
+import org.openide.loaders.DataObject;
+import org.openide.loaders.DataObjectExistsException;
+import org.openide.loaders.MultiFileLoader;
+import org.openide.util.NbBundle.Messages;
+import org.openide.windows.CloneableTopComponent;
+
+@Messages({
+    "LBL_Component_LOADER=Files of Component"
+})
+@MIMEResolver.ExtensionRegistration(
+        displayName = "#LBL_Component_LOADER",
+        mimeType = "text/ecomap-component+xml",
+        extension = {"xcd"}
+)
+@DataObject.Registration(
+        mimeType = "text/ecomap-component+xml",
+        iconBase = "info/lusito/mapeditor/editors/component/icon.png",
+        displayName = "#LBL_Component_LOADER",
+        position = 300
+)
+@ActionReferences({
+    @ActionReference(
+            path = "Loaders/text/ecomap-component+xml/Actions",
+            id = @ActionID(category = "System", id = "org.openide.actions.OpenAction"),
+            position = 100,
+            separatorAfter = 200
+    ),
+    @ActionReference(
+            path = "Loaders/text/ecomap-component+xml/Actions",
+            id = @ActionID(category = "Edit", id = "org.openide.actions.CutAction"),
+            position = 300
+    ),
+    @ActionReference(
+            path = "Loaders/text/ecomap-component+xml/Actions",
+            id = @ActionID(category = "Edit", id = "org.openide.actions.CopyAction"),
+            position = 400,
+            separatorAfter = 500
+    ),
+    @ActionReference(
+            path = "Loaders/text/ecomap-component+xml/Actions",
+            id = @ActionID(category = "Edit", id = "org.openide.actions.DeleteAction"),
+            position = 600
+    ),
+    @ActionReference(
+            path = "Loaders/text/ecomap-component+xml/Actions",
+            id = @ActionID(category = "System", id = "org.openide.actions.RenameAction"),
+            position = 700,
+            separatorAfter = 800
+    ),
+    @ActionReference(
+            path = "Loaders/text/ecomap-component+xml/Actions",
+            id = @ActionID(category = "System", id = "org.openide.actions.FileSystemAction"),
+            position = 1100,
+            separatorAfter = 1200
+    ),
+    @ActionReference(
+            path = "Loaders/text/ecomap-component+xml/Actions",
+            id = @ActionID(category = "System", id = "org.openide.actions.ToolsAction"),
+            position = 1300
+    ),
+    @ActionReference(
+            path = "Loaders/text/ecomap-component+xml/Actions",
+            id = @ActionID(category = "System", id = "org.openide.actions.PropertiesAction"),
+            position = 1400
+    )
+})
+public class ComponentDataObject extends SavableDataObject<ComponentDataObject, ComponentEditorController> {
+
+    private static final long serialVersionUID = -425704579560961778L;
+
+    public ComponentDataObject(FileObject pf, MultiFileLoader loader) throws DataObjectExistsException, IOException {
+        super(pf, loader);
+    }
+
+    @Override
+    public CloneableTopComponent createCloneableTopComponent(Entry entry) {
+        return new ComponentEditor((ComponentDataObject) entry.getDataObject());
+    }
+}
